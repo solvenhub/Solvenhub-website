@@ -45162,4 +45162,25 @@ padding-bottom: 50px;
   padding: 32px 24px;          /* Breathing room */
   box-sizing: border-box;
 }
+/* FIX: Long text like email & phone */
+.ar-about-funfact-item-content a,
+.ar-about-funfact-item-content p {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  display: inline-block;
+}
+.ar-about-funfact-item {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ar-about-funfact-item-icon {
+  flex: 0 0 40px;
+}
+@media (max-width: 576px) {
+  .ar-about-funfact-item-content a {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
 
