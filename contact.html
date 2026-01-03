@@ -424,7 +424,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="tp-contact-form-wrap">
-                                    <form action="enquiry.php" method="POST">
+                                    <form id="contact-form" action="https://script.google.com/macros/s/AKfycbx6JNsPf1zvp7vjpiQoxwjk-puOkN4IZBXxB-sl36tk2CVg7-aTKNFes4pdpIE1GO2JyA/exec" method="POST">
                                         <div class="row">
 
                                             <!-- Full Name -->
@@ -680,7 +680,36 @@
     <script type="module" src="assets/js/skew-slider/index.js"></script>
     <script type="module" src="assets/js/img-revel/index.js"></script>
 
+<script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbx6JNsPf1zvp7vjpiQoxwjk-puOkN4IZBXxB-sl36tk2CVg7-aTKNFes4pdpIE1GO2JyA/exec';
+      const form = document.getElementById('contact-form');
 
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        
+        // Find the submit button to show progress
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = "Sending...";
+        submitBtn.disabled = true;
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+              // This alert shows when the email is sent and Google Sheet is updated
+              alert("Thank you! Your enquiry has been submitted successfully.");
+              submitBtn.innerHTML = originalText;
+              submitBtn.disabled = false;
+              form.reset(); // Clears the form fields
+          })
+          .catch(error => {
+              console.error('Error!', error.message);
+              alert("Oops! Something went wrong. Please try again.");
+              submitBtn.innerHTML = originalText;
+              submitBtn.disabled = false;
+          });
+      });
+    </script>
+</body>
 
 </body>
 
