@@ -478,25 +478,12 @@
                                             </div>
 
                                             <!-- Submit -->
-                                            <div class="col-lg-12">
-                                                <div class="tp-contact-form-btn">
-                                                    <button class="w-100" <button type="submit" class="tp-btn-white-sm"><span>Send Message</span></button>
-                                                        <span>
-                                                            <span class="text-1">Send Message</span>
-                                                            <span class="text-2">Send Message</span>
-                                                        </span>
-                                                    </button>
-                                                </div>
+                                            <div class="tp-contact-form-btn">
+                                             <button type="submit" class="tp-btn-white-sm w-100">
+                                               <span>Send Message</span>
+                                             </button>
                                             </div>
 
-                                        </div>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- contact form area end -->
 
                 <!-- inner map area start -->
@@ -666,7 +653,6 @@
     <script src="assets/js/purecounter.js"></script>
     <script src="assets/js/isotope-pkgd.js"></script>
     <script src="assets/js/imagesloaded-pkgd.js"></script>
-    <script src="assets/js/ajax-form.js"></script>
     <script src="assets/js/Observer.min.js"></script>
     <script src="assets/js/splitting.min.js"></script>
     <script src="assets/js/webgl.js"></script>
@@ -680,38 +666,40 @@
     <script type="module" src="assets/js/skew-slider/index.js"></script>
     <script type="module" src="assets/js/img-revel/index.js"></script>
 
+
 <script>
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbx6JNsPf1zvp7vjpiQoxwjk-puOkN4IZBXxB-sl36tk2CVg7-aTKNFes4pdpIE1GO2JyA/exec';
-      const form = document.getElementById('contact-form');
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbx6JNsPf1zvp7vjpiQoxwjk-puOkN4IZBXxB-sl36tk2CVg7-aTKNFes4pdpIE1GO2JyA/exec';
+  const form = document.getElementById('contact-form');
 
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        
-        // Find the submit button to show progress
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = "Sending...";
-        submitBtn.disabled = true;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-          .then(response => {
-              // This alert shows when the email is sent and Google Sheet is updated
-              alert("Thank you! Your enquiry has been submitted successfully.");
-              submitBtn.innerHTML = originalText;
-              submitBtn.disabled = false;
-              form.reset(); // Clears the form fields
-          })
-          .catch(error => {
-              console.error('Error!', error.message);
-              alert("Oops! Something went wrong. Please try again.");
-              submitBtn.innerHTML = originalText;
-              submitBtn.disabled = false;
-          });
-      });
-    </script>
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.innerText = 'Sending...';
+    submitBtn.disabled = true;
+
+    fetch(scriptURL, {
+      method: 'POST',
+      body: new FormData(form)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network error');
+      }
+      alert('Thank you! Your enquiry has been submitted successfully.');
+      form.reset();
+    })
+    .catch(error => {
+      console.error(error);
+      alert('Oops! Something went wrong. Please try again.');
+    })
+    .finally(() => {
+      submitBtn.innerText = 'Send Message';
+      submitBtn.disabled = false;
+    });
+  });
+</script>
+
 </body>
-
-</body>
-
 
 </html>
