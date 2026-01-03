@@ -45155,3 +45155,11 @@ padding-bottom: 50px;
   background-color: var(--tp-common-white);
 }
 /*# sourceMappingURL=main.css.map */
+/* FIX: Get In Touch card overflow */
+.crp-hero-funfact-wrap {
+  height: auto !important;     /* Kills fixed height */
+  min-height: 420px;           /* Keeps design intent */
+  padding: 32px 24px;          /* Breathing room */
+  box-sizing: border-box;
+}
+
