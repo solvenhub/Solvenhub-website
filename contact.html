@@ -16,7 +16,7 @@
 <div class="contact-card"><h3>Email us</h3><p>For quotes, reports, and anything in writing.</p><a class="btn btn-primary" href="mailto:customersupport@solvenhub.com">customersupport@solvenhub.com</a></div>
 <div class="contact-card"><h3>Follow us</h3><p>Updates, monitoring stories, and behind-the-scenes.</p><div class="actions"><a class="btn btn-secondary" href="https://www.instagram.com/solvenhub_security">Instagram</a><a class="btn btn-secondary" href="https://www.facebook.com/share/1cWsPasg2y/" target="_blank" rel="noopener noreferrer">Facebook</a></div></div>
 </div>
-<form class="inquiry-form inquiry-pro" id="inquiryForm"><h3>Send an inquiry</h3><p>Pick a topic, tell us what you need, and hit send &mdash; it opens WhatsApp with your message ready for the SolvenHub team. No account needed, nothing stored.</p>
+<form class="inquiry-form inquiry-pro" id="inquiryForm"><h3>Send an inquiry</h3><p>Pick a topic, tell us what you need, and hit send &mdash; it opens WhatsApp with your message ready for the SolvenHub team. We also save your enquiry in our system so we can follow up properly.</p>
 <div class="form-row"><label for="inqTopic">I&rsquo;m interested in</label><select id="inqTopic" name="topic"><option>3-day free CCTV trial</option><option>24/7 CCTV monitoring plan</option><option>Referral program &mdash; 50% off</option><option>eBay / Amazon / Shopify store management</option><option>Digital marketing / brand identity</option><option>Something else</option></select></div>
 <div class="form-row"><label for="inqName">Your name</label><input id="inqName" name="name" type="text" autocomplete="name" placeholder="e.g. John" required></div>
 <div class="form-row"><label for="inqBiz">Business name <span>(optional)</span></label><input id="inqBiz" name="business" type="text" autocomplete="organization" placeholder="e.g. Sunrise Smoke Shop"></div>
@@ -135,6 +135,16 @@
     let text='Hi SolvenHub, I\'m '+name;
     if(biz) text+=' from '+biz;
     text+='. Interested in: '+topic+'. '+msg;
+    /* Also save the enquiry in the SolvenHub CRM (fire-and-forget). */
+    try{
+      var svc=null, tl=topic.toLowerCase();
+      if(tl.indexOf('cctv')>-1||tl.indexOf('trial')>-1||tl.indexOf('referral')>-1) svc='cctv';
+      else if(tl.indexOf('ebay')>-1||tl.indexOf('shopify')>-1||tl.indexOf('amazon')>-1) svc='ecommerce';
+      else if(tl.indexOf('marketing')>-1||tl.indexOf('brand')>-1) svc='promo';
+      var payload={name:name,business:biz,notes:'Topic: '+topic+'\n\n'+msg};
+      if(svc) payload.service_line=svc;
+      fetch('https://crm.solvenhub.com/api/leads/intake?token=292a83270f8556dbf0e8127383f8bf6694c235036e063332',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+    }catch(e){}
     window.open('https://wa.me/919326281981?text='+encodeURIComponent(text),'_blank','noopener');
   });
 </script></body></html>
