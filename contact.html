@@ -143,7 +143,7 @@
       else if(tl.indexOf('marketing')>-1||tl.indexOf('brand')>-1) svc='promo';
       var payload={name:name,business:biz,notes:'Topic: '+topic+'\n\n'+msg};
       if(svc) payload.service_line=svc;
-      fetch('https://crm.solvenhub.com/api/leads/intake?token=292a83270f8556dbf0e8127383f8bf6694c235036e063332',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+      fetch('https://crm.solvenhub.com/api/leads/intake?token=56623cf35bd525be84a410d26b43cf4e07385bb424a021acbf6ac310abc2d08b',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
     }catch(e){}
     window.open('https://wa.me/919326281981?text='+encodeURIComponent(text),'_blank','noopener');
   });
