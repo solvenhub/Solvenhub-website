@@ -7,6 +7,36 @@
   gtag('js', new Date());
   gtag('config', 'G-W462FRY2KD');
 </script>
+<script>
+/* SolvenHub GA4 conversion events (G-W462FRY2KD). No PII is collected:
+   only page path/title and static link text. */
+(function(){
+  function shEvent(name, params){
+    if (typeof gtag !== 'function') return;
+    var p = params || {};
+    p.page_path = location.pathname;
+    p.page_title = document.title;
+    gtag('event', name, p);
+  }
+  window.shEvent = shEvent;
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!a) return;
+    var href = (a.getAttribute('href') || '').toLowerCase();
+    var text = (a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80);
+    var evt = null;
+    if (href.indexOf('wa.me') > -1) evt = 'whatsapp_click';
+    else if (href.indexOf('tel:') === 0) evt = 'phone_click';
+    else if (href.indexOf('mailto:') === 0) evt = 'email_click';
+    else if (href.indexOf('youtube.com/@solvenhub') > -1) evt = 'youtube_click';
+    else if (href.indexOf('facebook.com') > -1) evt = 'facebook_click';
+    else if (href.indexOf('instagram.com') > -1) evt = 'instagram_click';
+    else if (text.toLowerCase().indexOf('security assessment') > -1) evt = 'security_assessment_click';
+    else if (/contact\.html$/.test(href) || href === 'contact.html') evt = 'contact_cta_click';
+    if (evt) shEvent(evt, { link_text: text });
+  }, { passive: true });
+})();
+</script>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#063f6b"><title>Contact SolvenHub | SolvenHub</title><meta name="description" content="Contact SolvenHub: call +1 645 246 4218, WhatsApp +91 93262 81981, or email customersupport@solvenhub.com. 24/7 service inquiries."><link rel="canonical" href="https://www.solvenhub.com/contact.html"><meta property="og:title" content="Contact SolvenHub | SolvenHub"><meta property="og:description" content="Contact SolvenHub: call +1 645 246 4218, WhatsApp +91 93262 81981, or email customersupport@solvenhub.com. 24/7 service inquiries."><meta property="og:url" content="https://www.solvenhub.com/contact.html">
 <meta property="og:image" content="https://www.solvenhub.com/assets/img/og-cover.jpg">
 <meta property="og:image:width" content="1200">
@@ -140,6 +170,7 @@
     const biz=document.getElementById('inqBiz').value.trim();
     const msg=document.getElementById('inqMsg').value.trim();
     if(!name||!msg) return;
+    if(window.shEvent) window.shEvent('contact_form_submit',{service_topic:topic});
     let text='Hi SolvenHub, I\'m '+name;
     if(biz) text+=' from '+biz;
     text+='. Interested in: '+topic+'. '+msg;
