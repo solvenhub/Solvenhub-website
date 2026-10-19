@@ -445,3 +445,9 @@ footer{background:#050D15;padding:76px 0 32px;border-top:1px solid var(--line)}
   .dot{animation:none}
   *{transition:none!important}
 }
+
+/* Phase 3: industry page links */
+.industry-link{font-weight:700;color:var(--brand);text-decoration:none}
+.industry-link:hover{text-decoration:underline}
+.service-sub{margin-top:10px;font-size:14px;opacity:.85}
+.service-sub a{color:inherit;font-weight:700}
