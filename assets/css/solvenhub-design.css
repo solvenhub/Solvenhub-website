@@ -451,3 +451,14 @@ footer{background:#050D15;padding:76px 0 32px;border-top:1px solid var(--line)}
 .industry-link:hover{text-decoration:underline}
 .service-sub{margin-top:10px;font-size:14px;opacity:.85}
 .service-sub a{color:inherit;font-weight:700}
+
+/* ---------- consent banner ---------- */
+.consent-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;background:#0a2540;color:#eaf2fb;border:1px solid #1e3a5c;border-radius:14px;padding:14px 16px;display:flex;gap:14px;align-items:center;justify-content:space-between;box-shadow:0 8px 30px rgba(0,0,0,.35);max-width:720px;margin:0 auto}
+.consent-banner[hidden]{display:none}
+.consent-banner p{margin:0;font-size:13.5px;line-height:1.5}
+.consent-banner a{color:#7cc4ff}
+.consent-actions{display:flex;gap:10px;flex-shrink:0}
+.btn-consent{border:0;border-radius:10px;padding:10px 18px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit}
+.btn-consent.accept{background:#0B5C93;color:#fff}
+.btn-consent.reject{background:transparent;color:#cfe0f2;border:1px solid #3a5a7d}
+@media(max-width:560px){.consent-banner{flex-direction:column;align-items:stretch;text-align:left}.consent-actions .btn-consent{flex:1}}

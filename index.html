@@ -6,6 +6,22 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  /* Consent Mode v2 (least privilege): deny analytics + ads storage by default.
+     The consent banner updates analytics_storage when the visitor chooses. */
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  /* Restore a previously saved choice before config runs. */
+  try {
+    var _shc = null;
+    try { _shc = JSON.parse(localStorage.getItem('sh_consent_v1') || 'null'); } catch (_e1) {}
+    if (_shc && _shc.analytics === 'granted') {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
+  } catch (_e2) {}
   gtag('js', new Date());
   gtag('config', 'G-W462FRY2KD');
 </script>
@@ -542,6 +558,17 @@ footer{background:#050D15;padding:76px 0 32px;border-top:1px solid var(--line)}
   *{transition:none!important}
 }
 
+
+/* ---------- consent banner ---------- */
+.consent-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;background:#0a2540;color:#eaf2fb;border:1px solid #1e3a5c;border-radius:14px;padding:14px 16px;display:flex;gap:14px;align-items:center;justify-content:space-between;box-shadow:0 8px 30px rgba(0,0,0,.35);max-width:720px;margin:0 auto}
+.consent-banner[hidden]{display:none}
+.consent-banner p{margin:0;font-size:13.5px;line-height:1.5}
+.consent-banner a{color:#7cc4ff}
+.consent-actions{display:flex;gap:10px;flex-shrink:0}
+.btn-consent{border:0;border-radius:10px;padding:10px 18px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit}
+.btn-consent.accept{background:#0B5C93;color:#fff}
+.btn-consent.reject{background:transparent;color:#cfe0f2;border:1px solid #3a5a7d}
+@media(max-width:560px){.consent-banner{flex-direction:column;align-items:stretch;text-align:left}.consent-actions .btn-consent{flex:1}}
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"SolvenHub","url":"https://www.solvenhub.com/","telephone":"+1 645 246 4218","email":"customersupport@solvenhub.com","sameAs":["https://www.youtube.com/@SolvenHub","https://www.instagram.com/solvenhub_security","https://www.facebook.com/share/1cWsPasg2y/"],"contactPoint":[{"@type":"ContactPoint","telephone":"+1 645 246 4218","contactType":"sales and support","availableLanguage":["English"]},{"@type":"ContactPoint","telephone":"+91 93262 81981","contactType":"WhatsApp services and inquiries","availableLanguage":["English"],"hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}}]},{"@type":"WebSite","name":"SolvenHub","url":"https://www.solvenhub.com/"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does SolvenHub do?","acceptedAnswer":{"@type":"Answer","text":"SolvenHub provides end-to-end digital, operational, and security support for U.S.-based businesses. Services include marketing, eCommerce store management, back-office tasks, customer support, CCTV monitoring, and branding."}},{"@type":"Question","name":"Where is the SolvenHub team based?","acceptedAnswer":{"@type":"Answer","text":"The primary team is based in India and works with dedicated U.S. timezone collaboration windows for smooth communication and faster execution."}},{"@type":"Question","name":"What is the onboarding process?","acceptedAnswer":{"@type":"Answer","text":"The process includes a discovery call, scope and strategy setup, onboarding and access, followed by daily execution and reporting."}},{"@type":"Question","name":"How does CCTV monitoring work?","acceptedAnswer":{"@type":"Answer","text":"SolvenHub securely connects to your camera feeds, monitors them in real time, and escalates alerts based on your rules. Incident reports include screenshots, timestamps, and video clips."}},{"@type":"Question","name":"What digital marketing outcomes can I expect?","acceptedAnswer":{"@type":"Answer","text":"SolvenHub focuses on better ROI, higher-quality leads, improved ad performance, SEO growth, weekly performance reports, and data-driven optimization."}}]}]}</script>
 </head>
@@ -567,7 +594,7 @@ footer{background:#050D15;padding:76px 0 32px;border-top:1px solid var(--line)}
 <section class="contact-section dark" id="contact" aria-labelledby="contact-title"><div class="wrap contact-card"><div><div class="eyebrow">Talk to SolvenHub</div><h2 id="contact-title">Security questions don’t keep office hours.</h2><p class="intro">For services or inquiries, message the 24/7 WhatsApp line. You can also call the U.S. number or email customer support.</p><div class="actions" style="margin-top:28px"><a class="btn btn-primary" href="https://www.solvenhub.com/contact.html">Book a Free Security Assessment</a><a class="btn whatsapp" href="https://wa.me/919326281981?text=Hi%20SolvenHub%2C%20I%27d%20like%20to%20inquire%20about%20your%20services"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.84 9.84 0 0 0-8.47 14.85L2 22l5.28-1.53A9.98 9.98 0 1 0 12.04 2Zm5.79 14.08c-.24.68-1.4 1.3-1.93 1.38-.5.09-1.12.13-1.81-.09-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.78-4.17-4.92-4.36-.14-.19-1.18-1.57-1.18-3s.74-2.14 1-2.43c.27-.29.58-.36.78-.36h.56c.18 0 .42-.07.66.5.24.58.82 2 .89 2.14.07.14.12.31.02.5-.09.2-.14.31-.28.48-.14.17-.3.37-.43.5-.14.14-.29.29-.12.58.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.65-.14.27.1 1.7.8 1.99.94.29.14.48.22.55.34.07.12.07.7-.17 1.38Z"/></svg>WhatsApp 24/7</a></div></div><div><div class="contact-methods"><div class="contact-method"><span>U.S. phone</span><a href="tel:+16452464218">+1 645 246 4218</a></div><div class="contact-method"><span>WhatsApp · services &amp; inquiries · 24/7</span><a href="https://wa.me/919326281981?text=Hi%20SolvenHub%2C%20I%27d%20like%20to%20inquire%20about%20your%20services">+91 93262 81981</a></div><div class="contact-method"><span>Email</span><a href="mailto:customersupport@solvenhub.com">customersupport@solvenhub.com</a></div></div><div class="social-links"><a href="https://www.instagram.com/solvenhub_security" target="_blank" rel="noopener noreferrer" aria-label="Follow SolvenHub Security on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/></svg>Instagram</a><a href="https://www.facebook.com/share/1cWsPasg2y/" target="_blank" rel="noopener noreferrer" aria-label="Follow SolvenHub on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v2H6v4h3v7h4v-7h3.3l.7-4h-4V9c0-.7.3-1 1-1Z"/></svg>Facebook</a><a href="https://www.youtube.com/@SolvenHub" target="_blank" rel="noopener noreferrer" aria-label="SolvenHub on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a></div></div></div></section>
 <section class="cta-band" aria-labelledby="cta-title"><div class="wrap cta-grid"><h2 id="cta-title">Your cameras are already there. Put trained eyes behind them.</h2><a class="btn" href="https://www.solvenhub.com/contact.html">Book a Free Security Assessment <span class="arrow" aria-hidden="true">→</span></a></div></section>
 </main>
-<footer><div class="wrap"><div class="footer-grid"><div><a class="brand footer-brand" href="#monitoring" aria-label="Go to SolvenHub homepage intro"><img width="1184" height="376" class="brand-logo" src="assets/img/home/logo.webp" alt="SolvenHub — Centralized Intelligence for Smarter Business"></a><p class="footer-copy">Remote CCTV monitoring and business support for U.S.-based companies.</p><div class="social-links"><a href="https://www.instagram.com/solvenhub_security" target="_blank" rel="noopener noreferrer" aria-label="Follow SolvenHub Security on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/></svg>Instagram</a><a href="https://www.facebook.com/share/1cWsPasg2y/" target="_blank" rel="noopener noreferrer" aria-label="Follow SolvenHub on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v2H6v4h3v7h4v-7h3.3l.7-4h-4V9c0-.7.3-1 1-1Z"/></svg>Facebook</a><a href="https://www.youtube.com/@SolvenHub" target="_blank" rel="noopener noreferrer" aria-label="SolvenHub on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a></div></div><div><div class="footer-title">Navigate</div><div class="footer-links"><a href="https://www.solvenhub.com/about-us.html">About SolvenHub</a><a href="https://www.solvenhub.com/services.html">Services</a><a href="https://www.solvenhub.com/blog.html">Blog</a><a href="https://www.solvenhub.com/offers.html">Offers</a><a href="https://www.solvenhub.com/contact.html">Contact</a></div></div><div><div class="footer-title">Talk to us</div><div class="contact-list"><a href="tel:+16452464218">+1 645 246 4218</a><small>U.S. phone</small><a href="https://wa.me/919326281981?text=Hi%20SolvenHub%2C%20I%27d%20like%20to%20inquire%20about%20your%20services">+91 93262 81981</a><small>WhatsApp · services &amp; inquiries · 24/7</small><a href="mailto:customersupport@solvenhub.com">customersupport@solvenhub.com</a></div></div></div><div class="copyright">© SolvenHub. Remote monitoring, digital operations, and business support.</div></div></footer>
+<footer><div class="wrap"><div class="footer-grid"><div><a class="brand footer-brand" href="#monitoring" aria-label="Go to SolvenHub homepage intro"><img width="1184" height="376" class="brand-logo" src="assets/img/home/logo.webp" alt="SolvenHub — Centralized Intelligence for Smarter Business"></a><p class="footer-copy">Remote CCTV monitoring and business support for U.S.-based companies.</p><div class="social-links"><a href="https://www.instagram.com/solvenhub_security" target="_blank" rel="noopener noreferrer" aria-label="Follow SolvenHub Security on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/></svg>Instagram</a><a href="https://www.facebook.com/share/1cWsPasg2y/" target="_blank" rel="noopener noreferrer" aria-label="Follow SolvenHub on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v2H6v4h3v7h4v-7h3.3l.7-4h-4V9c0-.7.3-1 1-1Z"/></svg>Facebook</a><a href="https://www.youtube.com/@SolvenHub" target="_blank" rel="noopener noreferrer" aria-label="SolvenHub on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a></div></div><div><div class="footer-title">Navigate</div><div class="footer-links"><a href="https://www.solvenhub.com/about-us.html">About SolvenHub</a><a href="https://www.solvenhub.com/services.html">Services</a><a href="https://www.solvenhub.com/blog.html">Blog</a><a href="https://www.solvenhub.com/offers.html">Offers</a><a href="https://www.solvenhub.com/contact.html">Contact</a></div></div><div><div class="footer-title">Talk to us</div><div class="contact-list"><a href="tel:+16452464218">+1 645 246 4218</a><small>U.S. phone</small><a href="https://wa.me/919326281981?text=Hi%20SolvenHub%2C%20I%27d%20like%20to%20inquire%20about%20your%20services">+91 93262 81981</a><small>WhatsApp · services &amp; inquiries · 24/7</small><a href="mailto:customersupport@solvenhub.com">customersupport@solvenhub.com</a></div></div></div><div class="copyright">© SolvenHub. Remote monitoring, digital operations, and business support. &middot; <a href="privacy-policy.html">Privacy Policy</a></div></div></footer>
 <div class="lightbox" id="proofLightbox" role="dialog" aria-modal="true" aria-label="Expanded CCTV monitoring view" aria-hidden="true"><div class="lightbox-inner"><button class="lightbox-close" type="button" aria-label="Close expanded image">×</button><img width="480" height="266" src="assets/img/home/gallery-7-thumb.webp" alt=""><div class="lightbox-caption"></div></div></div>
 <button class="chat-launcher" type="button" aria-label="Open SolvenHub AI assistant" aria-expanded="false" aria-controls="chatPanel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm3 6h10V7H7v2Zm0 4h7v-2H7v2Z"/></svg></button>
 <section class="chat-panel" id="chatPanel" aria-label="SolvenHub AI assistant" aria-hidden="true"><div class="chat-head"><span class="chat-status" aria-hidden="true"></span><div><strong>SolvenHub AI Assistant</strong><span>Instant answers · WhatsApp handoff</span></div><button class="chat-close" type="button" aria-label="Close chat">×</button></div><div class="chat-log" role="log" aria-live="polite"><div class="chat-message bot">Hi! I can answer questions about monitoring, reports, onboarding, pricing, and store management. What would you like to know?</div></div><div class="chat-quick" aria-label="Suggested questions"><button class="chat-chip" type="button" data-question="services">Services</button><button class="chat-chip" type="button" data-question="pricing">Pricing</button><button class="chat-chip" type="button" data-question="hourly updates">Hourly updates</button><button class="chat-chip" type="button" data-question="offers">Offers</button><button class="chat-chip" type="button" data-question="talk to a human">Talk to a human</button></div><form class="chat-form"><label class="sr-only" for="chatInput" style="position:absolute;left:-9999px">Ask a question</label><input class="chat-input" id="chatInput" type="text" autocomplete="off" placeholder="Ask about services or pricing…" maxlength="240"><button class="chat-send" type="submit">Ask</button></form><a class="chat-whatsapp" href="https://wa.me/919326281981?text=Hi%20SolvenHub%2C%20I%27d%20like%20to%20inquire%20about%20your%20services">Connect on WhatsApp</a></section>
@@ -672,5 +699,36 @@ footer{background:#050D15;padding:76px 0 32px;border-top:1px solid var(--line)}
   chatForm.addEventListener('submit',(event)=>{event.preventDefault();askChat(chatInput.value);chatInput.value='';});
   document.querySelectorAll('.chat-chip').forEach((button)=>button.addEventListener('click',()=>askChat(button.dataset.question)));
 </script>
+
+<div class="consent-banner" id="consentBanner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+<p>We use analytics to understand site usage. Your choice, always. <a href="privacy-policy.html">Privacy Policy</a></p>
+<div class="consent-actions">
+<button type="button" class="btn-consent accept" id="consentAccept">Accept</button>
+<button type="button" class="btn-consent reject" id="consentReject">Reject</button>
+</div>
+</div>
+<script>
+/* SolvenHub consent banner: remembers Accept/Reject in sh_consent_v1. */
+(function(){
+  var KEY='sh_consent_v1';
+  function read(){ try{ return JSON.parse(localStorage.getItem(KEY)||'null'); }catch(e){ return null; } }
+  function write(v){ try{ localStorage.setItem(KEY, JSON.stringify({analytics:v, ts:Date.now()})); }catch(e){} }
+  var banner=document.getElementById('consentBanner');
+  if(!banner) return;
+  if(read()) return;
+  setTimeout(function(){ banner.hidden=false; }, 1200);
+  document.getElementById('consentAccept').addEventListener('click', function(){
+    write('granted');
+    if(typeof gtag==='function'){ gtag('consent','update',{'analytics_storage':'granted'}); }
+    banner.hidden=true;
+  });
+  document.getElementById('consentReject').addEventListener('click', function(){
+    write('denied');
+    if(typeof gtag==='function'){ gtag('consent','update',{'analytics_storage':'denied'}); }
+    banner.hidden=true;
+  });
+})();
+</script>
+
 </body>
 </html>
