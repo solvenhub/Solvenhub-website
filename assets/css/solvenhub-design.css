@@ -462,3 +462,7 @@ footer{background:#050D15;padding:76px 0 32px;border-top:1px solid var(--line)}
 .btn-consent.accept{background:#0B5C93;color:#fff}
 .btn-consent.reject{background:transparent;color:#cfe0f2;border:1px solid #3a5a7d}
 @media(max-width:560px){.consent-banner{flex-direction:column;align-items:stretch;text-align:left}.consent-actions .btn-consent{flex:1}}
+/* Clear the fixed chat launcher (bottom:22px, 60px tall) and the <=680px sticky Call/WhatsApp bar (~70px) */
+@media(max-width:1080px){.consent-banner{bottom:92px}}
+/* <=680px: chat launcher moves to bottom:96px (top edge 150px) above the sticky bar */
+@media(max-width:680px){.consent-banner{bottom:158px}}
