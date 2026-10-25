@@ -239,7 +239,7 @@
           payload.notes+='\n\n[attribution: landing='+(at.landing||'').slice(0,160)+' page='+location.pathname.slice(0,160)+']';
         }
       }catch(ae2){}
-      fetch('https://crm.solvenhub.com/api/leads/intake?token=SH_intake_7Kp9xQ2mV8nR4tY6wA3cF5hJ1sD0zL9c',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+      fetch('https://crm.solvenhub.com/api/leads/intake?token=32b806c28b914adf172844bc112870a30031558375dbb182c186901e477390f5',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
     }catch(e){}
     window.open('https://wa.me/919326281981?text='+encodeURIComponent(text),'_blank','noopener');
   });
