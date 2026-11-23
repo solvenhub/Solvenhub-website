@@ -1,0 +1,457 @@
+<!doctype html><html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W462FRY2KD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  /* Consent Mode v2 (least privilege): deny analytics + ads storage by default.
+     The consent banner updates analytics_storage when the visitor chooses. */
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  /* Restore a previously saved choice before config runs. */
+  try {
+    var _shc = null;
+    try { _shc = JSON.parse(localStorage.getItem('sh_consent_v1') || 'null'); } catch (_e1) {}
+    if (_shc && _shc.analytics === 'granted') {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
+  } catch (_e2) {}
+  gtag('js', new Date());
+  gtag('config', 'G-W462FRY2KD');
+</script>
+<script>
+/* First-touch campaign attribution (first-party localStorage, 30-day expiry).
+   Captured once per visitor on the landing page; later page views never
+   overwrite it. Used only for the CRM lead payload, never sent to GA4. */
+(function(){
+  try{
+    var KEY='sh_attr_v1', now=Date.now(), attr=null;
+    try{ attr=JSON.parse(localStorage.getItem(KEY)||'null'); }catch(e){ attr=null; }
+    if(attr && attr.exp && attr.exp < now) attr=null;
+    if(!attr){
+      var q=new URLSearchParams(location.search), utm={}, i, k, v;
+      var keys=['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+      for(i=0;i<keys.length;i++){ k=keys[i]; v=q.get(k); if(v) utm[k]=String(v).slice(0,160); }
+      var ref='', extRef='';
+      try{ ref=document.referrer||''; }catch(e2){}
+      if(ref){
+        try{ if(new URL(ref).hostname!==location.hostname) extRef=ref.slice(0,160); }
+        catch(e3){ extRef=ref.slice(0,160); }
+      }
+      attr={utm:utm, referrer:extRef, landing:location.pathname.slice(0,160), ts:now, exp:now+30*864e5};
+      try{ localStorage.setItem(KEY, JSON.stringify(attr)); }catch(e4){}
+    }
+    window.shAttr=attr;
+  }catch(e5){ window.shAttr=null; }
+})();
+</script>
+<script>
+/* SolvenHub GA4 conversion events (G-W462FRY2KD). No PII is collected:
+   only page path/title and static link text. */
+(function(){
+  function shEvent(name, params){
+    if (typeof gtag !== 'function') return;
+    var p = params || {};
+    p.page_path = location.pathname;
+    p.page_title = document.title;
+    gtag('event', name, p);
+  }
+  window.shEvent = shEvent;
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!a) return;
+    var href = (a.getAttribute('href') || '').toLowerCase();
+    var text = (a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80);
+    var evt = null;
+    if (href.indexOf('wa.me') > -1) evt = 'whatsapp_click';
+    else if (href.indexOf('tel:') === 0) evt = 'phone_click';
+    else if (href.indexOf('mailto:') === 0) evt = 'email_click';
+    else if (href.indexOf('youtube.com/@solvenhub') > -1) evt = 'youtube_click';
+    else if (href.indexOf('facebook.com') > -1) evt = 'facebook_click';
+    else if (href.indexOf('instagram.com') > -1) evt = 'instagram_click';
+    else if (text.toLowerCase().indexOf('security assessment') > -1) evt = 'security_assessment_click';
+    else if (/contact\.html$/.test(href) || href === 'contact.html') evt = 'contact_cta_click';
+    if (evt) shEvent(evt, { link_text: text });
+  }, { passive: true });
+})();
+</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#063f6b"><title>Remote CCTV Monitoring in Florida | 24/7 Live Video Monitoring | SolvenHub</title><meta name="description" content="24/7 remote CCTV monitoring for Florida businesses — live human operators, escalation per your approved rules, and genuine Florida client proof from SolvenHub."><link rel="canonical" href="https://www.solvenhub.com/florida-remote-cctv-monitoring.html"><meta property="og:title" content="Remote CCTV Monitoring in Florida | 24/7 Live Video Monitoring | SolvenHub"><meta property="og:description" content="24/7 remote CCTV monitoring for Florida businesses — live human operators, escalation per your approved rules, and genuine Florida client proof from SolvenHub."><meta property="og:url" content="https://www.solvenhub.com/florida-remote-cctv-monitoring.html">
+<meta property="og:image" content="https://www.solvenhub.com/assets/img/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="24/7 Remote CCTV Monitoring Services | SolvenHub"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.solvenhub.com/assets/img/og-cover.jpg">
+<meta name="twitter:title" content="Smoke Shop CCTV Monitoring 24/7 | SolvenHub">
+<meta name="twitter:description" content="24/7 remote CCTV monitoring for smoke shops — entrances, display cases and cash areas watched live, with alerts per your rules."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/css/solvenhub-design.css"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Remote CCTV Monitoring in Florida | 24/7 Live Video Monitoring | SolvenHub",
+      "url": "https://www.solvenhub.com/florida-remote-cctv-monitoring.html",
+      "description": "24/7 remote CCTV monitoring for Florida businesses — live human operators, escalation per your approved rules, and genuine Florida client proof from SolvenHub.",
+      "isPartOf": {
+        "@id": "https://www.solvenhub.com/#website"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Remote CCTV Monitoring in Florida",
+      "serviceType": "Remote CCTV Monitoring",
+      "url": "https://www.solvenhub.com/florida-remote-cctv-monitoring.html",
+      "description": "24/7 remote CCTV monitoring for Florida businesses — live human operators, escalation per your approved rules, and genuine Florida client proof from SolvenHub.",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.solvenhub.com/#organization",
+        "name": "SolvenHub",
+        "url": "https://www.solvenhub.com/"
+      },
+      "areaServed": [
+        {
+          "@type": "State",
+          "name": "Florida"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.solvenhub.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Remote CCTV Monitoring",
+          "item": "https://www.solvenhub.com/remote-monitoring-services.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Florida",
+          "item": "https://www.solvenhub.com/florida-remote-cctv-monitoring.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does SolvenHub provide CCTV monitoring across Florida?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SolvenHub delivers remote CCTV monitoring to businesses across Florida, and monitoring is available nationwide across all 50 U.S. states. Current Florida clients include Plantation Smoke Shop in Plantation and V&V in Miramar, alongside other Florida smoke shops."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you monitor my existing cameras?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We may be able to monitor your existing setup. We would need to review the system first. During a free security assessment, we review your current cameras and confirm what monitoring options may be available."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to replace my CCTV system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not always. Whether your current system can be monitored depends on the review of your setup. If something cannot be monitored reliably, we will explain the options before you decide anything."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you monitor overnight?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Trained operators monitor live around the clock, including nights, weekends, and holidays — not just during business hours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do alerts and escalation work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When an operator sees suspicious activity, they follow the escalation rules you approved in advance: alerting your designated contacts and, where appropriate, escalating incidents to local authorities based on your approved escalation rules."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide incident reports?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Incidents our operators handle are documented, and monitoring activity is reported to you as set out in your plan, so you have a record of what was seen and what action was taken."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you monitor multiple Florida locations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Each location is set up with its own monitoring rules and designated contacts, and locations can be managed together under one service relationship."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is SolvenHub physically located in Florida?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. SolvenHub is based in India and delivers monitoring remotely. There is no SolvenHub office in Florida — your cameras are watched live by our remote monitoring team, and alerts follow your approved escalation rules."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script></head><body><header class="site-header"><div class="contact-strip"><div class="contact-inner wrap"><a class="contact-mini" href="tel:+16452464218">US: +1 645 246 4218</a><a class="contact-mini" href="mailto:customersupport@solvenhub.com">customersupport@solvenhub.com</a><a class="contact-mini" href="https://wa.me/919326281981?text=Hi%20SolvenHub%2C%20I%27d%20like%20to%20inquire%20about%20smoke%20shop%20CCTV%20monitoring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.84 9.84 0 0 0-8.47 14.85L2 22l5.28-1.53A9.98 9.98 0 1 0 12.04 2Zm5.79 14.08c-.24.68-1.4 1.3-1.93 1.38-.5.09-1.12.13-1.81-.09-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.78-4.17-4.92-4.36-.14-.19-1.18-1.57-1.18-3s.74-2.14 1-2.43c.27-.29.58-.36.78-.36h.56c.18 0 .42-.07.66.5.24.58.82 2 .89 2.14.07.14.12.31.02.5-.09.2-.14.31-.28.48-.14.17-.3.37-.43.5-.14.14-.29.29-.12.58.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.65-.14.27.1 1.7.8 1.99.94.29.14.48.22.55.34.07.12.07.7-.17 1.38Z"/></svg>WhatsApp 24/7: +91 93262 81981</a><a class="contact-mini" href="https://www.instagram.com/solvenhub_security" target="_blank" rel="noopener noreferrer" aria-label="SolvenHub on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/></svg>Instagram</a><a class="contact-mini" href="https://www.facebook.com/people/SolvenHub-Live-CCTV-Monitoring-USA/61582885067777/" target="_blank" rel="noopener noreferrer" aria-label="SolvenHub on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v2H6v4h3v7h4v-7h3.3l.7-4h-4V9c0-.7.3-1 1-1Z"/></svg>Facebook</a><a class="contact-mini" href="https://www.youtube.com/@SolvenHub" target="_blank" rel="noopener noreferrer" aria-label="SolvenHub on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a></div></div><nav class="nav wrap" aria-label="Primary navigation"><a class="brand" href="index.html" aria-label="Go to SolvenHub homepage"><img class="brand-logo" src="assets/img/solvenhub-logo.png" alt="SolvenHub — Centralized Intelligence for Smarter Business"></a><button class="menu" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button><div class="nav-links" id="navLinks"><a href="index.html">Home</a><a href="remote-monitoring-services.html">CCTV Monitoring</a><a href="ebay-store-management-services.html">eBay Management</a><a href="services.html">Services</a><a href="about-us.html">About</a><a href="blog.html">Blog</a><a href="offers.html">Offers</a><a href="contact.html">Contact</a></div><div class="header-actions"><a class="call" href="tel:+16452464218">Call Now</a><a class="whatsapp" href="https://wa.me/919326281981?text=Hi%20SolvenHub%2C%20I%27d%20like%20to%20inquire%20about%20smoke%20shop%20CCTV%20monitoring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.84 9.84 0 0 0-8.47 14.85L2 22l5.28-1.53A9.98 9.98 0 1 0 12.04 2Zm5.79 14.08c-.24.68-1.4 1.3-1.93 1.38-.5.09-1.12.13-1.81-.09-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.78-4.17-4.92-4.36-.14-.19-1.18-1.57-1.18-3s.74-2.14 1-2.43c.27-.29.58-.36.78-.36h.56c.18 0 .42-.07.66.5.24.58.82 2 .89 2.14.07.14.12.31.02.5-.09.2-.14.31-.28.48-.14.17-.3.37-.43.5-.14.14-.29.29-.12.58.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.65-.14.27.1 1.7.8 1.99.94.29.14.48.22.55.34.07.12.07.7-.17 1.38Z"/></svg>WhatsApp</a></div></nav></header>
+<main>
+<section class="hero">
+<div class="wrap"><div class="hero-content">
+<span class="status"><span class="dot" aria-hidden="true"></span>24/7 Live Monitoring</span>
+<h1>Remote CCTV Monitoring for Florida Businesses</h1>
+<p class="hero-lede">SolvenHub remotely monitors live camera feeds for businesses across Florida, using trained operators, agreed escalation rules, incident documentation, and customized monitoring workflows. Florida is part of SolvenHub's current client footprint, and this page brings together the Florida client proof, services, and answers in one place. For the full service overview, see our <a href="remote-monitoring-services.html">remote CCTV monitoring services</a>.</p>
+<div class="actions">
+<a class="btn btn-primary" href="contact.html">Book a Free Security Assessment <span class="arrow">→</span></a>
+<a class="btn btn-secondary" href="https://wa.me/919326281981?text=Hi%20SolvenHub%2C%20I%27d%20like%20to%20inquire%20about%20CCTV%20monitoring%20in%20Florida">WhatsApp 24/7</a>
+<a class="btn btn-ghost" href="tel:+16452464218">Call +1 645 246 4218</a>
+</div></div>
+</div>
+</section>
+
+<section class="light" aria-labelledby="fl-proof-title">
+<div class="wrap"><div class="section-head"><div><div class="eyebrow">Florida client proof</div><h2 id="fl-proof-title">Trusted by businesses across Florida</h2></div><p class="intro">These are real, current SolvenHub monitoring clients in Florida, as listed in our service coverage. Monitoring is delivered remotely for every one of them.</p></div>
+<div class="location-grid">
+<article class="location-card"><div class="count">SMOKE SHOP</div><h3>Smoke Cloud</h3><p>Florida</p></article>
+<article class="location-card"><div class="count">SMOKE SHOP</div><h3>Tobacco Plus</h3><p>Florida</p></article>
+<article class="location-card"><div class="count">SMOKE SHOP</div><h3>Plantation Smoke Shop</h3><p>Plantation, Florida</p></article>
+<article class="location-card"><div class="count">WHOLESALE</div><h3>V&amp;V Wholesale</h3><p>Miramar, Florida</p></article>
+<article class="location-card"><div class="count">SMOKE SHOP</div><h3>Vape Master</h3><p>Florida</p></article>
+<article class="location-card"><div class="count">SMOKE SHOP</div><h3>Sunrice</h3><p>Florida</p></article>
+</div></div>
+</section>
+
+<section class="dark" aria-labelledby="fl-plantation-title"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Client testimonial</div><h2 id="fl-plantation-title">What a Florida smoke-shop client says</h2></div><p class="intro">Real feedback from a current Florida client, in the owner's own words.</p></div><div class="story-grid"><article class="story featured"><div><span class="story-label">Client testimonial</span><div class="story-head"><div class="story-mark" aria-hidden="true">PS</div><div class="story-meta"><strong>Plantation Smoke Shop</strong><span>Mr. Katia · Plantation, Florida</span><span>Remote CCTV Monitoring</span></div></div></div><p class="story-quote">“SolvenHub has been monitoring our store for the past few months, and the peace of mind is worth every penny. Their team is alert, responsive, and professional — I know my business is being watched even when I'm not there.”</p></article></div></div></section>
+
+<section class="light" aria-labelledby="fl-vv-title">
+<div class="wrap"><div class="section-head"><div><div class="eyebrow">Wholesale monitoring</div><h2 id="fl-vv-title">V&amp;V — wholesale monitoring in Miramar</h2></div><p class="intro">V&amp;V is a wholesale and distribution business in Miramar, Florida, whose premises SolvenHub monitors remotely.</p></div><div class="story-grid"><article class="story featured"><div><span class="story-label">Client story</span><div class="story-head"><div class="story-mark" aria-hidden="true">V&amp;V</div><div class="story-meta"><strong>V&amp;V Distribution Inc</strong><span>Miramar, Florida</span><span>Remote CCTV Monitoring</span></div></div></div><p class="story-quote">“Their remote monitoring gives us peace of mind and helps us respond quickly to any issues.”</p></article></div></div>
+</section>
+
+<section aria-labelledby="fl-gallery-title">
+<div class="wrap"><div class="section-head"><div><div class="eyebrow">Real monitoring proof</div><h2 id="fl-gallery-title">Live monitoring in action</h2></div><p class="intro">Actual multi-camera grids supplied from client locations. Select any image to view it enlarged.</p></div>
+<div class="proof-gallery">
+<figure><button class="proof-open" type="button" data-full="assets/img/home/gallery-6.webp" data-caption="Smoke shop — live multi-camera grid" aria-label="Enlarge image: Smoke shop — live multi-camera grid"><img width="480" height="264" src="assets/img/home/gallery-6-thumb.webp" alt="Live multi-camera CCTV grid covering a smoke shop interior and exterior" loading="lazy"></button><figcaption>Smoke shop — live multi-camera grid</figcaption></figure>
+<figure><button class="proof-open" type="button" data-full="assets/img/home/gallery-11.webp" data-caption="Smoke shop — multi-camera monitoring" aria-label="Enlarge image: Smoke shop — multi-camera monitoring"><img width="480" height="264" src="assets/img/home/gallery-11-thumb.webp" alt="Multi-camera CCTV monitoring view inside a smoke shop" loading="lazy"></button><figcaption>Smoke shop — multi-camera monitoring</figcaption></figure>
+<figure><button class="proof-open" type="button" data-full="assets/img/home/gallery-4.webp" data-caption="Warehouse &amp; stockroom — multi-camera monitoring" aria-label="Enlarge image: Warehouse &amp; stockroom — multi-camera monitoring"><img width="480" height="264" src="assets/img/home/gallery-4-thumb.webp" alt="Multi-camera CCTV monitoring of a warehouse and stockroom" loading="lazy"></button><figcaption>Warehouse &amp; stockroom — multi-camera monitoring</figcaption></figure>
+</div>
+<p class="proof-note">Client-provided monitoring screenshots shared with permission. Images show live camera grids as supplied by client locations.</p></div>
+</section>
+
+<section class="light" aria-labelledby="fl-industries-title">
+<div class="wrap"><div class="section-head"><div><div class="eyebrow">Industries</div><h2 id="fl-industries-title">Industries we monitor in Florida</h2></div><p class="intro">Florida's monitored client base today is concentrated in smoke shops and wholesale, and the same remote monitoring service is available to other Florida industries.</p></div><div class="problem-grid">
+<article class="problem-block"><h3>Smoke shops</h3><p>Live monitoring of entrances, display cases, cash areas, and after-hours activity. See <a href="smoke-shop-cctv-monitoring.html">smoke shop CCTV monitoring</a>.</p></article>
+<article class="problem-block"><h3>Vape stores</h3><p>The same live coverage for vape retail — sales floor, counter, stockroom, and parking areas, day and night.</p></article>
+<article class="problem-block"><h3>Grocery and retail</h3><p>Aisles, checkouts, entrances, and stock areas watched live, with incidents documented and escalated per your rules.</p></article>
+<article class="problem-block"><h3>Wholesale</h3><p>Warehouse floors, loading areas, and stockrooms under live remote monitoring. See <a href="warehouse-wholesale-cctv-monitoring.html">warehouse and wholesale monitoring</a>.</p></article>
+<article class="problem-block"><h3>Gas stations</h3><p>Pumps, store interior, and forecourt monitored live, including overnight hours. See <a href="gas-station-cctv-monitoring.html">gas station CCTV monitoring</a>.</p></article>
+<article class="problem-block"><h3>Warehouses</h3><p>Perimeter, dock, and storage coverage with documented incidents and agreed escalation.</p></article>
+<article class="problem-block"><h3>Construction sites</h3><p>After-hours site monitoring for materials, equipment, and perimeter activity. See <a href="construction-site-cctv-monitoring.html">construction site monitoring</a>.</p></article>
+</div></div>
+</section>
+
+<section class="light" aria-labelledby="fl-how-title">
+<div class="wrap"><div class="section-head"><div><div class="eyebrow">How it works</div><h2 id="fl-how-title">How remote monitoring works</h2></div><p class="intro">Five steps, the same for a single Florida store or several locations.</p></div><div class="problem-grid">
+<article class="problem-block"><h3>1. Camera review and setup</h3><p>We review your existing camera setup first and confirm what can be monitored. We may be able to monitor your existing setup — we would need to review the system first.</p></article>
+<article class="problem-block"><h3>2. Monitoring rules</h3><p>You approve the rules in advance: what operators watch for, who your designated contacts are, and how incidents should be escalated.</p></article>
+<article class="problem-block"><h3>3. Live monitoring</h3><p>Trained operators watch your live feeds around the clock — not recordings reviewed after something has already happened.</p></article>
+<article class="problem-block"><h3>4. Alerts and escalation</h3><p>When suspicious activity is detected, operators alert your designated contacts and, where appropriate, escalate incidents to local authorities based on your approved escalation rules.</p></article>
+<article class="problem-block"><h3>5. Reporting and documentation</h3><p>Incidents are documented, and monitoring activity is reported to you as set out in your plan, so you keep a clear record.</p></article>
+</div></div>
+</section>
+
+<section class="light" aria-labelledby="fl-why-title">
+<div class="wrap"><div class="section-head"><div><div class="eyebrow">Why remote monitoring</div><h2 id="fl-why-title">Why Florida businesses use remote monitoring</h2></div></div><div class="problem-grid">
+<article class="problem-block"><h3>Live human monitoring</h3><p>Real operators watch your cameras live and judge activity in context — a person reviewing your store, not a recording you check after a loss.</p></article>
+<article class="problem-block"><h3>Overnight coverage</h3><p>Monitoring continues through nights, weekends, and holidays, when Florida stores and warehouses are closed and most exposed.</p></article>
+<article class="problem-block"><h3>Customized monitoring rules</h3><p>Escalation follows the rules and contacts you approved, so every location is handled the way you decided in advance.</p></article>
+<article class="problem-block"><h3>Incident documentation</h3><p>What operators see and do is documented, giving you a record for insurance, police reports, or internal review.</p></article>
+<article class="problem-block"><h3>Monitoring without an on-site guard</h3><p>Live coverage of your premises without employing a physical guard on site — monitoring is delivered remotely by SolvenHub's team.</p></article>
+</div></div>
+</section>
+
+<section aria-labelledby="fl-coverage-title">
+<div class="wrap"><div class="section-head"><div><div class="eyebrow">Florida coverage</div><h2 id="fl-coverage-title">Monitoring across Florida</h2></div><p class="intro">SolvenHub can consider businesses across Florida for remote monitoring.</p></div>
+<p>Current Florida clients include Plantation Smoke Shop in Plantation and V&amp;V in Miramar, and current client operations also include the Miami area. Other named Florida clients — Smoke Cloud, Tobacco Plus, Vape Master, and Sunrice — are listed in our coverage above. Not every Florida city has a SolvenHub client yet, and this page does not claim otherwise: service is available statewide, and the client proof shown here is the proof we actually have.</p>
+<p>SolvenHub itself is based in India. Monitoring is delivered remotely, which is why a Florida business can be covered without SolvenHub having a Florida office. Read more <a href="about-us.html">about SolvenHub</a> or go back to the <a href="remote-monitoring-services.html">full monitoring service overview</a>.</p>
+</div>
+</section>
+
+<section class="light">
+<div class="wrap"><div class="faq-layout"><div class="faq-aside">
+<div class="eyebrow">FAQ</div>
+<h2>Florida monitoring questions</h2>
+<p>Still unsure? Message us on WhatsApp — we answer 24/7.</p>
+</div>
+<div class="faq-list">
+<details open><summary>Does SolvenHub provide CCTV monitoring across Florida?</summary><p>Yes. SolvenHub delivers remote CCTV monitoring to businesses across Florida, and monitoring is available nationwide across all 50 U.S. states. Current Florida clients include Plantation Smoke Shop in Plantation and V&amp;V in Miramar, alongside other Florida smoke shops.</p></details>
+<details><summary>Can you monitor my existing cameras?</summary><p>We may be able to monitor your existing setup. We would need to review the system first. During a free security assessment, we review your current cameras and confirm what monitoring options may be available.</p></details>
+<details><summary>Do I need to replace my CCTV system?</summary><p>Not always. Whether your current system can be monitored depends on the review of your setup. If something cannot be monitored reliably, we will explain the options before you decide anything.</p></details>
+<details><summary>Can you monitor overnight?</summary><p>Yes. Trained operators monitor live around the clock, including nights, weekends, and holidays — not just during business hours.</p></details>
+<details><summary>How do alerts and escalation work?</summary><p>When an operator sees suspicious activity, they follow the escalation rules you approved in advance: alerting your designated contacts and, where appropriate, escalating incidents to local authorities based on your approved escalation rules.</p></details>
+<details><summary>Do you provide incident reports?</summary><p>Yes. Incidents our operators handle are documented, and monitoring activity is reported to you as set out in your plan, so you have a record of what was seen and what action was taken.</p></details>
+<details><summary>Can you monitor multiple Florida locations?</summary><p>Yes. Each location is set up with its own monitoring rules and designated contacts, and locations can be managed together under one service relationship.</p></details>
+<details><summary>Is SolvenHub physically located in Florida?</summary><p>No. SolvenHub is based in India and delivers monitoring remotely. There is no SolvenHub office in Florida — your cameras are watched live by our remote monitoring team, and alerts follow your approved escalation rules.</p></details>
+</div></div></div>
+</section>
+
+<section aria-labelledby="fl-cta-title">
+<div class="wrap"><div class="section-head"><div><div class="eyebrow">Get started</div><h2 id="fl-cta-title">Book a Free Security Assessment</h2></div><p class="intro">Tell us about your Florida business and cameras, and we will review what monitoring options may be available.</p></div>
+<div class="actions">
+<a class="btn btn-primary" href="contact.html">Book a Free Security Assessment <span class="arrow">→</span></a>
+<a class="btn btn-secondary" href="https://wa.me/919326281981?text=Hi%20SolvenHub%2C%20I%27d%20like%20to%20inquire%20about%20CCTV%20monitoring%20in%20Florida">WhatsApp 24/7</a>
+<a class="btn btn-ghost" href="tel:+16452464218">Call +1 645 246 4218</a>
+</div></div>
+</section>
+</main>
+<footer><div class="wrap"><div class="footer-grid"><div><a class="brand footer-brand" href="index.html" aria-label="Go to SolvenHub homepage"><img class="brand-logo" src="assets/img/solvenhub-whitelogo.png" alt="SolvenHub — Centralized Intelligence for Smarter Business"></a><p class="footer-copy">Remote CCTV monitoring and business support for U.S.-based companies.</p><div class="social-links"><a href="https://www.instagram.com/solvenhub_security" target="_blank" rel="noopener noreferrer" aria-label="Follow SolvenHub Security on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/></svg>Instagram</a><a href="https://www.facebook.com/people/SolvenHub-Live-CCTV-Monitoring-USA/61582885067777/" target="_blank" rel="noopener noreferrer" aria-label="Follow SolvenHub on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v2H6v4h3v7h4v-7h3.3l.7-4h-4V9c0-.7.3-1 1-1Z"/></svg>Facebook</a><a href="https://www.youtube.com/@SolvenHub" target="_blank" rel="noopener noreferrer" aria-label="SolvenHub on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a></div></div><div><div class="footer-title">Navigate</div><div class="footer-links"><a href="https://www.solvenhub.com/remote-monitoring-services.html">CCTV Monitoring</a><a href="https://www.solvenhub.com/ebay-store-management-services.html">eBay Store Management</a><a href="https://www.solvenhub.com/digital-marketing-services.html">Digital Marketing</a><a href="https://www.solvenhub.com/brand-identity-development.html">Brand Identity</a><a href="https://www.solvenhub.com/about-us.html">About SolvenHub</a><a href="https://www.solvenhub.com/services.html">Services</a><a href="https://www.solvenhub.com/blog.html">Blog</a><a href="https://www.solvenhub.com/offers.html">Offers</a><a href="https://www.solvenhub.com/contact.html">Contact</a></div></div><div><div class="footer-title">Talk to us</div><div class="contact-list"><a href="tel:+16452464218">+1 645 246 4218</a><small>U.S. phone</small><a href="https://wa.me/919326281981?text=Hi%20SolvenHub%2C%20I%27d%20like%20to%20inquire%20about%20smoke%20shop%20CCTV%20monitoring">+91 93262 81981</a><small>WhatsApp · services &amp; inquiries · 24/7</small><a href="mailto:customersupport@solvenhub.com">customersupport@solvenhub.com</a></div></div></div><div class="copyright">© SolvenHub. Remote monitoring, digital operations, and business support. &middot; <a href="privacy-policy.html">Privacy Policy</a></div></div></footer><button class="chat-launcher" type="button" aria-label="Open SolvenHub AI assistant" aria-expanded="false" aria-controls="chatPanel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5a2 2 0 0 1-2-2Zm3 6h10V7H7v2Zm0 4h7v-2H7v2Z"/></svg></button>
+<section class="chat-panel" id="chatPanel" aria-label="SolvenHub AI assistant" aria-hidden="true"><div class="chat-head"><span class="chat-status" aria-hidden="true"></span><div><strong>SolvenHub AI Assistant</strong><span>Instant answers · WhatsApp handoff</span></div><button class="chat-close" type="button" aria-label="Close chat">×</button></div><div class="chat-log" role="log" aria-live="polite"><div class="chat-message bot">Hi! I can answer questions about monitoring, reports, onboarding, pricing, and store management. What would you like to know?</div></div><div class="chat-quick" aria-label="Suggested questions"><button class="chat-chip" type="button" data-question="services">Services</button><button class="chat-chip" type="button" data-question="pricing">Pricing</button><button class="chat-chip" type="button" data-question="hourly updates">Hourly updates</button><button class="chat-chip" type="button" data-question="offers">Offers</button><button class="chat-chip" type="button" data-question="talk to a human">Talk to a human</button></div><form class="chat-form"><label class="sr-only" for="chatInput" style="position:absolute;left:-9999px">Ask a question</label><input class="chat-input" id="chatInput" type="text" autocomplete="off" placeholder="Ask about services or pricing…" maxlength="240"><button class="chat-send" type="submit">Ask</button></form><a class="chat-whatsapp" href="https://wa.me/919326281981?text=Hi%20SolvenHub%2C%20I%27d%20like%20to%20inquire%20about%20smoke%20shop%20CCTV%20monitoring">Connect on WhatsApp</a></section><div class="sticky-contact"><a class="mobile-call" href="tel:+16452464218">Call Now</a><a class="mobile-whatsapp" href="https://wa.me/919326281981?text=Hi%20SolvenHub%2C%20I%27d%20like%20to%20inquire%20about%20smoke%20shop%20CCTV%20monitoring">WhatsApp</a></div><script>
+  const menu=document.querySelector('.menu');
+  const links=document.getElementById('navLinks');
+  menu.addEventListener('click',()=>{
+    const open=links.classList.toggle('open');
+    menu.setAttribute('aria-expanded',String(open));
+    menu.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+    menu.textContent=open?'×':'☰';
+  });
+  links.addEventListener('click',()=>{
+    links.classList.remove('open');
+    menu.setAttribute('aria-expanded','false');
+    menu.setAttribute('aria-label','Open navigation');
+    menu.textContent='☰';
+  });
+  document.querySelectorAll('.faq-list details').forEach((item)=>{
+    const summary=item.querySelector('summary');
+    summary.addEventListener('click',(event)=>{
+      event.preventDefault();
+      item.open=!item.open;
+    });
+  });
+
+  if(document.getElementById('proofLightbox')){
+  const lightbox=document.getElementById('proofLightbox');
+  const lightboxImage=lightbox.querySelector('img');
+  const lightboxCaption=lightbox.querySelector('.lightbox-caption');
+  const lightboxClose=lightbox.querySelector('.lightbox-close');
+  let lastProofButton=null;
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    if(lastProofButton) lastProofButton.focus();
+  }
+  document.querySelectorAll('.proof-open').forEach((button)=>button.addEventListener('click',()=>{
+    lastProofButton=button;
+    lightboxImage.src=button.dataset.full;
+    lightboxImage.alt=button.querySelector('img').alt;
+    lightboxCaption.textContent=button.dataset.caption;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    lightboxClose.focus();
+  }));
+  lightboxClose.addEventListener('click',closeLightbox);
+  lightbox.addEventListener('click',(event)=>{if(event.target===lightbox) closeLightbox();});
+  document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&lightbox.classList.contains('open')) closeLightbox();});
+  }
+
+  const chatLauncher=document.querySelector('.chat-launcher');
+  const chatPanel=document.getElementById('chatPanel');
+  const chatClose=document.querySelector('.chat-close');
+  const chatLog=document.querySelector('.chat-log');
+  const chatForm=document.querySelector('.chat-form');
+  const chatInput=document.getElementById('chatInput');
+  const chatReplies=[
+    {words:['price','pricing','cost','quote','rate'],reply:'Every plan is customized by location count, camera coverage, monitoring hours, and reporting needs. Connect on WhatsApp for a tailored quote.'},
+    {words:['24/7','24 7','around the clock','overnight','night'],reply:'Yes. SolvenHub provides 24/7 remote CCTV monitoring, with trained operators watching live feeds and escalating issues based on your rules.'},
+    {words:['onboard','start','setup','connect','process'],reply:'We start with a discovery call, review your camera setup and locations, define monitoring and escalation rules, securely connect the feeds, then begin monitoring and reporting.'},
+    {words:['hourly','screenshot','update'],reply:'Hourly updates can include status notes and CCTV screenshots, customized around the reporting cadence your operation needs.'},
+    {words:['excel','report','activity','log'],reply:'SolvenHub can provide an Excel activity sheet documenting monitored activities, alongside incident evidence and screenshot updates.'},
+    {words:['ebay','amazon','shopify','tiktok','store','shop'],reply:'Beyond CCTV, SolvenHub manages 20+ eBay, Amazon, Shopify, and TikTok shops, including day-to-day marketplace operations.'},
+    {words:['trial','discount','refer','referral','deal','promo'],reply:'Current offers: a 3-day free trial of 24/7 CCTV monitoring, and refer friends or family to get 50% off your plan. See the Offers page or message us on WhatsApp for details.'},{words:['service','offer','do'],reply:'Services include 24/7 remote CCTV monitoring, customized plans and requests, hourly screenshot updates, Excel activity reporting, eCommerce store management, digital marketing, and brand support.'},
+    {words:['contact','email','phone','call'],reply:'Call the U.S. line at +1 645 246 4218, email customersupport@solvenhub.com, or use the WhatsApp button below for 24/7 service inquiries.'},
+    {words:['human','person','whatsapp','agent'],reply:'A team member can help directly on WhatsApp. Use the green button below to continue your conversation.'}
+  ];
+  function replyFor(question){
+    const normalized=question.toLowerCase();
+    const match=chatReplies.find((item)=>item.words.some((word)=>normalized.includes(word)));
+    return match?match.reply:'I can help with services, pricing, 24/7 monitoring, onboarding, reports, and contact details. For a site-specific question, connect with the team on WhatsApp.';
+  }
+  function addChatMessage(text,type){
+    const message=document.createElement('div');
+    message.className='chat-message '+type;
+    message.textContent=text;
+    chatLog.appendChild(message);
+    chatLog.scrollTop=chatLog.scrollHeight;
+  }
+  function askChat(question){
+    const clean=question.trim();
+    if(!clean) return;
+    addChatMessage(clean,'user');
+    addChatMessage(replyFor(clean),'bot');
+  }
+  function openChat(){
+    chatPanel.classList.add('open');
+    chatPanel.setAttribute('aria-hidden','false');
+    chatLauncher.setAttribute('aria-expanded','true');
+    chatInput.focus();
+  }
+  function closeChat(){
+    chatPanel.classList.remove('open');
+    chatPanel.setAttribute('aria-hidden','true');
+    chatLauncher.setAttribute('aria-expanded','false');
+    chatLauncher.focus();
+  }
+  chatLauncher.addEventListener('click',()=>chatPanel.classList.contains('open')?closeChat():openChat());
+  chatClose.addEventListener('click',closeChat);
+  chatForm.addEventListener('submit',(event)=>{event.preventDefault();askChat(chatInput.value);chatInput.value='';});
+  document.querySelectorAll('.chat-chip').forEach((button)=>button.addEventListener('click',()=>askChat(button.dataset.question)));
+</script>
+<div class="consent-banner" id="consentBanner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+<p>We use analytics to understand site usage. Your choice, always. <a href="privacy-policy.html">Privacy Policy</a></p>
+<div class="consent-actions">
+<button type="button" class="btn-consent accept" id="consentAccept">Accept</button>
+<button type="button" class="btn-consent reject" id="consentReject">Reject</button>
+</div>
+</div>
+<script>
+/* SolvenHub consent banner: remembers Accept/Reject in sh_consent_v1. */
+(function(){
+  var KEY='sh_consent_v1';
+  function read(){ try{ return JSON.parse(localStorage.getItem(KEY)||'null'); }catch(e){ return null; } }
+  function write(v){ try{ localStorage.setItem(KEY, JSON.stringify({analytics:v, ts:Date.now()})); }catch(e){} }
+  var banner=document.getElementById('consentBanner');
+  if(!banner) return;
+  if(read()) return;
+  setTimeout(function(){ banner.hidden=false; }, 1200);
+  document.getElementById('consentAccept').addEventListener('click', function(){
+    write('granted');
+    if(typeof gtag==='function'){ gtag('consent','update',{'analytics_storage':'granted'}); }
+    banner.hidden=true;
+  });
+  document.getElementById('consentReject').addEventListener('click', function(){
+    write('denied');
+    if(typeof gtag==='function'){ gtag('consent','update',{'analytics_storage':'denied'}); }
+    banner.hidden=true;
+  });
+})();
+</script>
+
+</body></html>
